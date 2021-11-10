@@ -1,0 +1,13 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/donna> a foaf:Person ;
+    foaf:mbox <mailto:donna@example.org> ;
+    foaf:name "Donna Fales" ;
+    foaf:nick "donna"@en .
+
+<http://example.org/edward> a foaf:Person ;
+    foaf:mbox "e.scissorhands@example.org"^^xsd:anyURI ;
+    foaf:name "Edward Scissorhands" ;
+    foaf:nick "ed"^^xsd:string .
+

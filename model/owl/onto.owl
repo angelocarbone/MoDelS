@@ -1,0 +1,2866 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://www.angelocarbone.com/ontologies/MoDO"
+         xmlns="http://www.angelocarbone.com/ontologies/MoDO#"
+         xmlns:MoDO="http://www.angelocarbone.com/ontologies/MoDO#mds:">
+
+<owl:Ontology rdf:about="http://www.angelocarbone.com/ontologies/MoDO">
+  <owl:versionIRI rdf:resource="http://www.angelocarbone.com/ontologies/MoDO/0.2.0"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MoDO - Moral Deliberation Ontology</rdfs:comment>
+  <MoDO:author>Angelo Carboπe</MoDO:author>
+</owl:Ontology>
+
+<owl:ObjectProperty rdf:about="#actionIsPerformed">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#ActiveObject"/>
+  <rdfs:subPropertyOf rdf:resource="#performs"/>
+  <owl:inverseOf rdf:resource="#performsAction"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#performs"/>
+
+<owl:ObjectProperty rdf:about="#performsAction">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#ActiveObject"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:subPropertyOf rdf:resource="#performs"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#actionTriggersAction">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:subPropertyOf rdf:resource="#triggers"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#triggers">
+  <rdfs:label>triggers</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#actionTriggersEvent">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#triggers"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#causesEvent">
+  <rdfs:domain rdf:resource="#ActiveObject"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#performs"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#connectedTo"/>
+
+<owl:ObjectProperty rdf:about="#driverIsImpaired">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Driver"/>
+  <rdfs:range rdf:resource="#CausalFactor"/>
+  <rdfs:subPropertyOf rdf:resource="#isImpaired"/>
+  <owl:inverseOf rdf:resource="#impairsDriver"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isImpaired"/>
+
+<owl:ObjectProperty rdf:about="#impairsDriver">
+  <rdfs:domain rdf:resource="#CausalFactor"/>
+  <rdfs:range rdf:resource="#Driver"/>
+  <rdfs:subPropertyOf rdf:resource="#impairs"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#impairs">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#driverIsOnVehicle">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Driver"/>
+  <rdfs:range rdf:resource="#Vehicle"/>
+  <rdfs:subPropertyOf rdf:resource="#isOnVehicle"/>
+  <owl:inverseOf rdf:resource="#hasDriver"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOnVehicle">
+  <rdfs:subPropertyOf rdf:resource="#isOn"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasDriver">
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="#Driver"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOn">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#drivesWith">
+  <rdfs:domain rdf:resource="#Driver"/>
+  <rdfs:range rdf:resource="#FellowPassenger"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#entityIsImpaired">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#CausalFactor"/>
+  <rdfs:subPropertyOf rdf:resource="#isImpaired"/>
+  <owl:inverseOf rdf:resource="#impairsEntity"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#impairsEntity">
+  <rdfs:domain rdf:resource="#CausalFactor"/>
+  <rdfs:range rdf:resource="#Entity"/>
+  <rdfs:subPropertyOf rdf:resource="#impairs"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#eventIsPerformed">
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#ActiveObject"/>
+  <rdfs:subPropertyOf rdf:resource="#performs"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#eventTriggersAction">
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:subPropertyOf rdf:resource="#triggers"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#eventTriggersEvent">
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#triggers"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasDrivingSkill">
+  <rdfs:domain rdf:resource="#Driver"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <owl:inverseOf rdf:resource="#isDrivingSkill"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isDrivingSkill">
+  <rdfs:range rdf:resource="#Driver"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasLane"/>
+
+<owl:ObjectProperty rdf:about="#hasLanePosition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Pedestrian"/>
+  <rdfs:range>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#LanePosition"/>
+        <rdf:Description rdf:about="#RoadPosition"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:range>
+  <rdfs:subPropertyOf rdf:resource="#hasPosition"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasPosition"/>
+
+<owl:ObjectProperty rdf:about="#hasLeftLane">
+  <rdfs:domain rdf:resource="#Lane"/>
+  <rdfs:range rdf:resource="#Lane"/>
+  <rdfs:subPropertyOf rdf:resource="#hasLane"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasPassenger">
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="#FellowPassenger"/>
+  <owl:inverseOf rdf:resource="#passengerIsOnVehicle"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#passengerIsOnVehicle">
+  <rdfs:domain rdf:resource="#FellowPassenger"/>
+  <rdfs:range rdf:resource="#Driver"/>
+  <rdfs:subPropertyOf rdf:resource="#isOnVehicle"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasRightLane">
+  <rdfs:domain rdf:resource="#Lane"/>
+  <rdfs:range rdf:resource="#Lane"/>
+  <rdfs:subPropertyOf rdf:resource="#hasLane"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasRoadPosition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="#RoadPosition"/>
+  <rdfs:subPropertyOf rdf:resource="#hasPosition"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#hasSafetyEquipment">
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="#SafetyEquipement"/>
+  <owl:inverseOf rdf:resource="#isSafetyEquipment"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isSafetyEquipment">
+  <rdfs:domain rdf:resource="#SafetyEquipement"/>
+  <rdfs:range rdf:resource="#Vehicle"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isBehindOf">
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#Entity"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isCauseOf">
+  <rdfs:domain rdf:resource="#CausalFactor"/>
+  <rdfs:range rdf:resource="#DrivingError"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  <owl:inverseOf rdf:resource="#isCausedBy"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isCausedBy">
+  <rdfs:domain rdf:resource="#DrivingError"/>
+  <rdfs:range rdf:resource="#CausalFactor"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isFrontOf">
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#Entity"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isLeftOf">
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#Entity"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOnCrosswalk">
+  <rdfs:domain rdf:resource="#Pedestrian"/>
+  <rdfs:range rdf:resource="#Crosswalk"/>
+  <rdfs:subPropertyOf rdf:resource="#isOnRoad"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOnRoad">
+  <rdfs:subPropertyOf rdf:resource="#isOn"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOnIntersection">
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="#Intersection"/>
+  <rdfs:subPropertyOf rdf:resource="#isOnRoad"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isOnLane">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Pedestrian"/>
+        <rdf:Description rdf:about="#Vehicle"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="#Lane"/>
+  <rdfs:subPropertyOf rdf:resource="#isOnRoad"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#isRightOf">
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="#Entity"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#junctionPartOfRoad">
+  <rdfs:domain rdf:resource="#Junction"/>
+  <rdfs:range rdf:resource="#Road"/>
+  <rdfs:subPropertyOf rdf:resource="#partOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#partOf">
+  <rdfs:label>partOf</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#junctionToJunction">
+  <rdfs:domain rdf:resource="#Junction"/>
+  <rdfs:range rdf:resource="#Junction"/>
+  <rdfs:subPropertyOf rdf:resource="#connectedTo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#lanePartOfSection">
+  <rdfs:domain rdf:resource="#Lane"/>
+  <rdfs:range rdf:resource="#Section"/>
+  <rdfs:subPropertyOf rdf:resource="#partOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#miscStaticObjectPartOfRoad">
+  <rdfs:domain rdf:resource="#MiscStaticObject"/>
+  <rdfs:range rdf:resource="#Road"/>
+  <rdfs:subPropertyOf rdf:resource="#partOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#notPerformsAction">
+  <rdfs:domain rdf:resource="#ActiveObject"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:subPropertyOf rdf:resource="#performs"/>
+  <owl:inverseOf rdf:resource="#performsAction"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#objectOf"/>
+
+<owl:ObjectProperty rdf:about="#objectOfAction">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#EntityObject"/>
+  <rdfs:subPropertyOf rdf:resource="#objectOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#objectOfEvent">
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#EntityObject"/>
+  <rdfs:subPropertyOf rdf:resource="#objectOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sectionPartOfRoad">
+  <rdfs:domain rdf:resource="#Section"/>
+  <rdfs:range rdf:resource="#Road"/>
+  <rdfs:subPropertyOf rdf:resource="#partOf"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sectionToJunction">
+  <rdfs:domain rdf:resource="#Section"/>
+  <rdfs:range rdf:resource="#Junction"/>
+  <rdfs:subPropertyOf rdf:resource="#connectedTo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sectionToSection">
+  <rdfs:domain rdf:resource="#Section"/>
+  <rdfs:range rdf:resource="#Section"/>
+  <rdfs:subPropertyOf rdf:resource="#connectedTo"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#sendSignal">
+  <rdfs:domain rdf:resource="#SafetyFeature"/>
+  <rdfs:range rdf:resource="#SafetyComponent"/>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#temporalRelation"/>
+
+<owl:ObjectProperty rdf:about="#trAfter">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trBefore"/>
+  <rdfs:comment>Temporal Support (ts) Relation</rdfs:comment>
+  <rdfs:label>trAfter</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trBefore">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 before i2 ≡ e1 &lt; s2</rdfs:comment>
+  <rdfs:label>trBefore</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trContains">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trDuring"/>
+  <rdfs:comment>Temporal Support (ts) Relation</rdfs:comment>
+  <rdfs:label>trContains</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trDuring">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 during i 2 ≡ s 1 &gt; s 2 ∧ e 1 &lt; e 2</rdfs:comment>
+  <rdfs:label>trDuring</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trEquals">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 equals i2 ≡ s1 = s2 ∧ e1 = e2</rdfs:comment>
+  <rdfs:label>trEquals</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trFinishedBy">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trFinishes"/>
+  <rdfs:comment>Temporal Support (ts) Relation</rdfs:comment>
+  <rdfs:label>trFinishedBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trFinishes">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trStarts"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 finishes i 2 ≡ s 1 &gt; s 2 ∧ e 1 = e 2</rdfs:comment>
+  <rdfs:label>trFinishes</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trStarts">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 starts i 2 ≡ s 1 = s 2 ∧ e 1 &lt; e 2</rdfs:comment>
+  <rdfs:label>trStarts</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trMeets">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trMetBy"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 meets i2 ≡ e1 = s2</rdfs:comment>
+  <rdfs:label>trMeets</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trMetBy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i2 meets i1 ≡ e2 = s1</rdfs:comment>
+  <rdfs:label>trMetBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trOverlappedBy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trOverlaps"/>
+  <rdfs:comment>Temporal Support (ts) Relation</rdfs:comment>
+  <rdfs:label>trOverlappedBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trOverlaps">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <rdfs:comment>Temporal Support (ts) Relation
+
+Given: i1 = [s1 , e1] and i2 = [s2 , e2]
+
+i1 overlaps i 2 ≡ s 1 &lt; s 2 ∧ e 1 &lt; e 2 ∧ e 1 &gt; s 2</rdfs:comment>
+  <rdfs:label>trOverlaps</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="#trStartedBy">
+  <rdfs:domain rdf:resource="#Action"/>
+  <rdfs:domain rdf:resource="#Event"/>
+  <rdfs:range rdf:resource="#Action"/>
+  <rdfs:range rdf:resource="#Event"/>
+  <rdfs:subPropertyOf rdf:resource="#temporalRelation"/>
+  <owl:inverseOf rdf:resource="#trStarts"/>
+  <rdfs:comment>Temporal Support (ts) Relation</rdfs:comment>
+  <rdfs:label>trStartedBy</rdfs:label>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="#axle">
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#boundingBox">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxle">
+  <rdfs:subPropertyOf rdf:resource="#axle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxleMaxStearing">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxlePositionX">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxlePositionY">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxlePositionZ">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxleTrackWidth">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#frontAxleWheelDiameter">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#frontAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#height">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#id">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Junction"/>
+        <rdf:Description rdf:about="#Lane"/>
+        <rdf:Description rdf:about="#Road"/>
+        <rdf:Description rdf:about="#Section"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lanePosition">
+  <rdfs:subPropertyOf rdf:resource="#position"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#position"/>
+
+<owl:DatatypeProperty rdf:about="#lanePositionLaneId">
+  <rdfs:subPropertyOf rdf:resource="#lanePosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lanePositionOffset">
+  <rdfs:subPropertyOf rdf:resource="#lanePosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lanePositionOrientation">
+  <rdfs:subPropertyOf rdf:resource="#lanePosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lanePositionRoadId">
+  <rdfs:subPropertyOf rdf:resource="#lanePosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lanePositionS">
+  <rdfs:subPropertyOf rdf:resource="#lanePosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#length">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#lineType">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Lane"/>
+  <rdfs:range>
+    <rdfs:Datatype>
+      <owl:oneOf>
+        <rdf:Description>
+      <rdf:first>dashed</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>dashed_solid</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>none</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>solid</rdf:first>
+        <rdf:rest>
+        <rdf:Description>
+      <rdf:first>solid_dashed</rdf:first>
+        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+        </rdf:rest>
+        </rdf:Description>
+      </owl:oneOf>
+    </rdfs:Datatype>
+  </rdfs:range>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#mass">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#maxSpeed">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Lane"/>
+        <rdf:Description rdf:about="#Road"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#model">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Pedestrian"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#model3D">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxle">
+  <rdfs:subPropertyOf rdf:resource="#axle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxleMaxStearing">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxlePositionX">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxlePositionY">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxlePositionZ">
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxleTrackWidth">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#rearAxleWheelDiameter">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Vehicle"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#rearAxle"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#roadPosition">
+  <rdfs:subPropertyOf rdf:resource="#position"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#roadPositionOrientation">
+  <rdfs:subPropertyOf rdf:resource="#roadPosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#roadPositionRoadId">
+  <rdfs:subPropertyOf rdf:resource="#roadPosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#roadPositionS">
+  <rdfs:subPropertyOf rdf:resource="#roadPosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#roadPositionT">
+  <rdfs:subPropertyOf rdf:resource="#roadPosition"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#speed">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#Entity"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#width">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#x">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#y">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#z">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Entity"/>
+        <rdf:Description rdf:about="#MiscStaticObject"/>
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+  <rdfs:subPropertyOf rdf:resource="#boundingBox"/>
+</owl:DatatypeProperty>
+
+<owl:AnnotationProperty rdf:about="#mds:author"/>
+
+<owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+
+<owl:AnnotationProperty rdf:about="#Author"/>
+
+<owl:Class rdf:about="#Action">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#actionTriggersAction"/>
+      <owl:someValuesFrom rdf:resource="#Action"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#actionTriggersEvent"/>
+      <owl:someValuesFrom rdf:resource="#Event"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#objectOfAction"/>
+      <owl:someValuesFrom rdf:resource="#EntityObject"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment xml:lang="it">Manovre di traffico eseguite da uno qualsiasi dei possibili soggetti dello scenario.</rdfs:comment>
+  <rdfs:comment xml:lang="en">Traffic maneuvers performed by any of the possible subjects of the scenario.</rdfs:comment>
+  <rdfs:label>Action</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ActiveObject">
+  <rdfs:subClassOf rdf:resource="#EntityObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Event">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#eventTriggersAction"/>
+      <owl:someValuesFrom rdf:resource="#Action"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#eventTriggersEvent"/>
+      <owl:someValuesFrom rdf:resource="#Event"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#objectOfEvent"/>
+      <owl:someValuesFrom rdf:resource="#EntityObject"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment xml:lang="en">A thing that happens or takes place in a concrete instant of time and is relevant for the description of the scenario. It usually causes other events  or actions.</rdfs:comment>
+  <rdfs:comment xml:lang="it">Una cosa che accade o avviene in un concreto istante di tempo ed è rilevante per la descrizione dello scenario. Di solito provoca altri eventi o azioni.</rdfs:comment>
+  <rdfs:label>Event</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Driver">
+  <rdfs:subClassOf rdf:resource="#OnBoard"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#driverIsOnVehicle"/>
+      <owl:someValuesFrom rdf:resource="#Vehicle"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#drivesWith"/>
+      <owl:onClass rdf:resource="#FellowPassenger"/>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <owl:disjointWith rdf:resource="#FellowPassenger"/>
+</owl:Class>
+
+<owl:Class rdf:about="#CausalFactor">
+  <rdfs:subClassOf rdf:resource="#Context"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#impairsDriver"/>
+      <owl:someValuesFrom rdf:resource="#Driver"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#impairsEntity"/>
+      <owl:someValuesFrom rdf:resource="#Entity"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isCauseOf"/>
+      <owl:someValuesFrom rdf:resource="#DrivingError"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label>Causal Factor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Vehicle">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasPassenger"/>
+      <owl:someValuesFrom rdf:resource="#FellowPassenger"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasSafetyEquipment"/>
+      <owl:someValuesFrom rdf:resource="#SafetyEquipement"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasDriver"/>
+      <owl:onClass rdf:resource="#Driver"/>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#FellowPassenger">
+  <rdfs:subClassOf rdf:resource="#OnBoard"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#passengerIsOnVehicle"/>
+      <owl:someValuesFrom rdf:resource="#Vehicle"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <MoDO:author rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angelo Carboπe</MoDO:author>
+</owl:Class>
+
+<owl:Class rdf:about="#Entity">
+  <rdfs:subClassOf rdf:resource="#ActiveObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isBehindOf"/>
+      <owl:someValuesFrom rdf:resource="#Entity"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isFrontOf"/>
+      <owl:someValuesFrom rdf:resource="#Entity"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isLeftOf"/>
+      <owl:someValuesFrom rdf:resource="#Entity"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isRightOf"/>
+      <owl:someValuesFrom rdf:resource="#Entity"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <MoDO:author rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angelo Carboπe</MoDO:author>
+</owl:Class>
+
+<owl:Class rdf:about="#Pedestrian">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+  <owl:disjointWith rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LanePosition">
+  <rdfs:subClassOf rdf:resource="#Position"/>
+  <owl:disjointWith rdf:resource="#RoadPosition"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RoadPosition">
+  <rdfs:subClassOf rdf:resource="#Position"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Lane">
+  <rdfs:subClassOf rdf:resource="#StaticObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#lanePartOfSection"/>
+      <owl:someValuesFrom rdf:resource="#Section"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasLeftLane"/>
+      <owl:allValuesFrom rdf:resource="#Lane"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasRightLane"/>
+      <owl:allValuesFrom rdf:resource="#Lane"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <MoDO:author rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angelo Carboπe</MoDO:author>
+</owl:Class>
+
+<owl:Class rdf:about="#SafetyEquipement">
+  <rdfs:subClassOf rdf:resource="#ActiveObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isSafetyEquipment"/>
+      <owl:someValuesFrom rdf:resource="#Vehicle"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#DrivingError">
+  <rdfs:subClassOf rdf:resource="#Context"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isCausedBy"/>
+      <owl:someValuesFrom rdf:resource="#CausalFactor"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label>Driving Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Crosswalk">
+  <rdfs:subClassOf rdf:resource="#Junction"/>
+  <owl:disjointWith rdf:resource="#Intersection"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Intersection">
+  <rdfs:subClassOf rdf:resource="#Junction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Junction">
+  <rdfs:subClassOf rdf:resource="#StaticObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#junctionPartOfRoad"/>
+      <owl:someValuesFrom rdf:resource="#Road"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#junctionToJunction"/>
+      <owl:someValuesFrom rdf:resource="#Junction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <MoDO:author rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angelo Carboπe</MoDO:author>
+</owl:Class>
+
+<owl:Class rdf:about="#Road">
+  <rdfs:subClassOf rdf:resource="#StaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Section">
+  <rdfs:subClassOf rdf:resource="#StaticObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#sectionPartOfRoad"/>
+      <owl:someValuesFrom rdf:resource="#Road"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#sectionToJunction"/>
+      <owl:someValuesFrom rdf:resource="#Junction"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#sectionToSection"/>
+      <owl:someValuesFrom rdf:resource="#Section"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#MiscStaticObject">
+  <rdfs:subClassOf rdf:resource="#StaticObject"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#miscStaticObjectPartOfRoad"/>
+      <owl:someValuesFrom rdf:resource="#Road"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#EntityObject">
+  <rdfs:comment xml:lang="en">An object is any material thing that can be seen and touched.</rdfs:comment>
+  <rdfs:comment xml:lang="it">Un oggetto è qualsiasi cosa materiale che può essere vista e toccata.</rdfs:comment>
+  <rdfs:label>EntityObject</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SafetyFeature">
+  <rdfs:subClassOf rdf:resource="#SafetyEquipement"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SafetyComponent">
+  <rdfs:subClassOf rdf:resource="#SafetyEquipement"/>
+  <owl:disjointWith rdf:resource="#SafetyFeature"/>
+</owl:Class>
+
+<owl:Class rdf:about="#OnBoard">
+  <rdfs:subClassOf rdf:resource="#ActiveObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Context">
+  <rdfs:label>Context</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Position">
+  <rdfs:subClassOf rdf:resource="#Context"/>
+</owl:Class>
+
+<owl:Class rdf:about="#StaticObject">
+  <rdfs:subClassOf rdf:resource="#EntityObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AbsoluteSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SpeedAction">
+  <rdfs:subClassOf rdf:resource="#LongitudinalAction"/>
+  <rdfs:comment xml:lang="en">This action describes the transition of an entity's longitudinal speed to a target longitudinal speed. SpeedActionDynamics specifies the transition with respects to time or distance combined with a shape.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#LongitudinalAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Applies longitudinal control behavior on the reference entity/entities. Either a SpeedAction or a LongitudinalDistanceAction.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#PrivateAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Accident">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>Accidents are situations in which one or more vehicles lose control and do not recover.  They include collisions between cf_vehicle(s) or other network user(s), between cf_vehicle(s) and fixed obstacle(s), or they result from a cf_vehicle running off the network infrastructure.</rdfs:comment>
+  <rdfs:label>Accident</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ActivateControllerAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">This action activates or deactivates controller defined (e.g. automated, autonomous) behavior on the given entity.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#AggressiveDriving">
+  <rdfs:subClassOf rdf:resource="#DecisionError"/>
+  <rdfs:label>Aggressive Driving</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DecisionError">
+  <rdfs:subClassOf rdf:resource="#DrivingError"/>
+  <rdfs:comment xml:lang="en">Decision errors happen when a cf_driver is unable to decide or choose the appropriate response or action (e.g., brake or accelerate), having perceived, interpreted, and recognized the information correctly in the perception and recognition phase.
+
+For instance, some of the cf_driver behaviors, such as driving slowly below speed limit and exceeding safe speed but not the speed limit, indicate inappropriate decisions of the subject drivers which have contributed to the crash occurrence or severity, which we classify as decision failures. It indicates that appropriate decision of the subject cf_driver could be to maintain their speed (below speed limit) according to the traffic stream and should not drive too slowly.</rdfs:comment>
+  <rdfs:comment xml:lang="it">Gli errori decisionali si verificano quando un conducente non è in grado di decidere o scegliere la risposta o l'azione appropriata (ad esempio, frenare o accelerare), avendo percepito, interpretato e riconosciuto correttamente le informazioni nella fase di percezione e riconoscimento.
+
+Ad esempio, alcuni dei comportamenti dei conducenti, come guidare lentamente al di sotto del limite di velocità e superare la velocità di sicurezza ma non il limite di velocità, indicano decisioni inappropriate dei conducenti in questione che hanno contribuito al verificarsi o alla gravità dell'incidente, che vengono classificati come errori decisionali. Indica che la decisione appropriata del conducente in questione potrebbe essere quella di mantenere la propria velocità (al di sotto del limite di velocità) in base al flusso di traffico e non dovrebbe guidare troppo lentamente.</rdfs:comment>
+  <rdfs:label>Decision Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Animal">
+  <rdfs:subClassOf rdf:resource="#Pedestrian"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Approaching">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment xml:lang="en">The action of getting closer to a junction, crosswalk or other object.</rdfs:comment>
+  <rdfs:label>Approaching</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ToDelete">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#AvoidingCollision">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment xml:lang="en">An instance of one moving object or person when it avoids striking violently against another or any other object of the scene.</rdfs:comment>
+  <rdfs:label>AvoidingCollision</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#AvoidingConflict">
+  <rdfs:subClassOf rdf:resource="#DecisionError"/>
+  <rdfs:label>Avoiding Conflict</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Barrier">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#BeingAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Bike">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Blocking">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment xml:lang="en">The action or fact of blocking or obstructing someone or something.</rdfs:comment>
+  <rdfs:label>Blocking</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Building">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Bus">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Car">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+  <rdfs:label>Car</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Colliding">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment xml:lang="en">An instance of one moving object or person striking violently against another or any other object of the scene.</rdfs:comment>
+  <rdfs:label>Colliding</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Collition">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>An instance of one moving object or person striking violently against another or any other object of the scene.</rdfs:comment>
+  <rdfs:label>Collision</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ControllerAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Action that assigns a new controller or overrides an existing one.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Cross">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>To move from one side to the other of either a junction or a crosswalk.</rdfs:comment>
+  <rdfs:label>Cross</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Crossing">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment xml:lang="en">The action of crossing either a junction or a crosswalk.</rdfs:comment>
+  <rdfs:label>Crossing</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CuttingIn">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <owl:disjointWith rdf:resource="#CuttingOut"/>
+  <rdfs:comment>Is a lane change maneuver where the target cf_vehicle moves into the space ahead of a relatively closely following cf_vehicle in the adjacent lane.</rdfs:comment>
+  <rdfs:label>Cutting-in</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#CuttingOut">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>When a cf_vehicle in the middle of the platoon decides to leave and the following one has to cover the cut-out cf_vehicle gap.</rdfs:comment>
+  <rdfs:label>Cutting-out</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Daylight">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Weather">
+  <rdfs:subClassOf rdf:resource="#Context"/>
+  <MoDO:author rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Angelo Carboπe</MoDO:author>
+</owl:Class>
+
+<owl:Class rdf:about="#Decelerating">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>To reduce the speed that a cf_vehicle is travelling at.</rdfs:comment>
+  <rdfs:label>Decelerating</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Detect">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>When a sensor discovers or identifies the presence or existence of an object.</rdfs:comment>
+  <rdfs:label>Detect</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Distraction">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MentalOrEmotionalFactor">
+  <rdfs:subClassOf rdf:resource="#HumanFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#HumanFactor">
+  <rdfs:subClassOf rdf:resource="#CausalFactor"/>
+  <owl:disjointWith rdf:resource="#VehicleFactor"/>
+  <rdfs:label>Human Factor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#VehicleFactor">
+  <rdfs:subClassOf rdf:resource="#CausalFactor"/>
+  <rdfs:label>Vehicle Factor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DistractionError">
+  <rdfs:subClassOf rdf:resource="#RecognitionError"/>
+  <rdfs:comment xml:lang="en">Driver is distracted by internal secondary task or factor.</rdfs:comment>
+  <rdfs:label>Distraction Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RecognitionError">
+  <rdfs:subClassOf rdf:resource="#DrivingError"/>
+  <rdfs:comment xml:lang="it">Gli errori di riconoscimento si verificano quando un conducente non riesce a riconoscere adeguatamente la situazione reale, sia per distrazione che per scarsa capacità di giudizio, che richiede una manovra evasiva.
+
+La variabile dell'errore di riconoscimento può essere indicativa del rischio più elevato associato alla distrazione rispetto a se il guidatore soggetto non fosse distratto. Se il conducente in questione non fosse stato distratto, avrebbe potuto rispondere efficacemente a una situazione rischiosa.
+
+Alcuni esempi nella categoria "recognition failure", che contribuiscono agli incidenti, includono conducenti che non sono stati in grado di riconoscere il diritto di precedenza rispetto ad altri veicoli o persone, conducenti che non si rendono conto delle dimensioni esatte di un parcheggio, conducenti che giudicano male il direzione e velocità dei pedoni o di altri veicoli quando si cambia corsia e incapacità di rendersi conto/vedere l'ambiente posteriore durante la retromarcia.</rdfs:comment>
+  <rdfs:comment xml:lang="en">Recognition errors occur when a cf_driver fails to appropriately recognize the real situation, either due to distraction or poor judgement, requiring an evasive maneuver.
+
+The recognition error variable can be indicative of the higher risk associated with distraction compared with if the subject cf_driver was not distracted. If the subject cf_driver was not distracted, then they could have effectively responded to risky situation.
+
+Some examples in the “recognition failure” category, contributing to crashes, include drivers that were unable to recognize the right-of-way in relation to other cf_vehicle or person, drivers not realizing the exact dimensions of a parking space, drivers poorly judging the direction and speed of pedestrians or other vehicles when changing lanes, and inability to realize/see rear-side environment during backing.</rdfs:comment>
+  <rdfs:label>Recognition Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Driveaway">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The action performed when a cf_vehicle starts moving.</rdfs:comment>
+  <rdfs:label>Driveaway</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DrivingInOppositeDirection">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>To move in the opposite direction with reference to the ego-cf_vehicle.</rdfs:comment>
+  <rdfs:label>Driving in opposite direction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#DrivingStraight">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <owl:disjointWith rdf:resource="#Reversing"/>
+  <rdfs:comment>The action of driving following the current road path.</rdfs:comment>
+  <rdfs:label>Driving straight</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Reversing">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>Is the process of driving a cf_vehicle in the reverse direction in order to maneuver.</rdfs:comment>
+  <rdfs:label>Reversing</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EmergencyManeuver">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>Emergency Manoeuvre (EM) is a manoeuvre performed by the system in case of an event in which the cf_vehicle is at imminent collision risk and has the purpose of avoiding or mitigating a collision.</rdfs:comment>
+  <rdfs:label>EmergencyManeuver</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#EmotionalUpset">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ExperienceFactor">
+  <rdfs:subClassOf rdf:resource="#HumanFactor"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isCauseOf"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DecisionError"/>
+            <rdf:Description rdf:about="#PerformanceError"/>
+            <rdf:Description rdf:about="#Violation"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label>Experience Factor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PerformanceError">
+  <rdfs:subClassOf rdf:resource="#DrivingError"/>
+  <rdfs:comment xml:lang="en">Driver performance errors relate to a cf_driver’s response in the reaction phase often reflecting poor lateral or longitudinal control or weak judgement of driving situations.
+
+For instance, if a subject cf_driver intended to accelerate but did not accelerate enough, which resulted in a crash, then this would indicate a performance failure for the subject cf_driver. Another example is when a cf_driver is unable to take corners properly (for example, making large turns or steering too far).</rdfs:comment>
+  <rdfs:comment xml:lang="it">Gli errori delle prestazioni del conducente si riferiscono alla risposta del conducente nella fase di reazione, spesso riflettendo uno scarso controllo laterale o longitudinale o un giudizio debole delle situazioni di guida.
+
+Ad esempio, se un guidatore soggetto intendeva accelerare ma non ha accelerato abbastanza, il che ha provocato un arresto anomalo, ciò indicherebbe un fallimento delle prestazioni per il guidatore soggetto. 
+
+Altro esempio è quando un conducente non è in grado di affrontare le curve in modo adeguato (ad esempio, effettuare curve larghe o sterzare troppo lontano).</rdfs:comment>
+  <rdfs:label>Performance Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Violation">
+  <rdfs:subClassOf rdf:resource="#DrivingError"/>
+  <rdfs:comment xml:lang="en">In addition to performance errors, a cf_driver may violate traffic regulations during the reaction phase, thus this study classifies the traffic violations separately from driving errors. Traffic violations, whether intentional or unintentional, are severe threat to road users.</rdfs:comment>
+  <rdfs:comment xml:lang="it">Oltre agli errori di prestazione, un guidatore può violare le regole del traffico durante la fase di reazione, quindi le violazioni del traffico sono classificate separatamente dagli errori di guida. Le violazioni del traffico, intenzionali o meno, rappresentano una grave minaccia per gli utenti della strada.</rdfs:comment>
+  <rdfs:label>Violation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Failure">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The action or state of not functioning.</rdfs:comment>
+  <rdfs:label>Failure</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Fall">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The event occurs when a person loses balance and collapses.</rdfs:comment>
+  <rdfs:label>Fall</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FallBehind">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>Occurs when the ego-cf_vehicle is driving slower than the leading cf_vehicle or is decelerating.</rdfs:comment>
+  <rdfs:label>FallBehind</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FallingBehind">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <owl:disjointWith rdf:resource="#Overtaking"/>
+  <rdfs:comment>The action of driving slower than its lead cf_vehicle and is also decelerating.</rdfs:comment>
+  <rdfs:label>Falling behind</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Overtaking">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <owl:equivalentClass rdf:resource="#Passing"/>
+  <rdfs:comment>To go past another cf_vehicle that is travelling in the same direction.</rdfs:comment>
+  <rdfs:label>Overtaking</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Passing">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>When a dynamic object is moving forward and goes past the position of another object that is moving in a neighboring lane or is located near its position in the road network infrastructure.</rdfs:comment>
+  <rdfs:label>Passing</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#FallingDown">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>Occurs when a person or object loses balance and collapses to the ground.</rdfs:comment>
+  <rdfs:label>Falling down</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Fog">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Following">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>When the cf_vehicle is driving with the same velocity as the cf_vehicle in front.</rdfs:comment>
+  <rdfs:label>Following</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Frustration">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Gantry">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#GlidingOnWheels">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>Gliding is an energy-efficient driving mode achieved by turning off the internal combustion engine while the cf_vehicle is still moving in order to save fuel.</rdfs:comment>
+  <rdfs:label>Gliding on wheels</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#GlobalAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Hail">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Halt">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The action of braking till coming to a halt.</rdfs:comment>
+  <rdfs:label>Halt</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Haze">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Humidity">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#IllegalManeuver">
+  <rdfs:subClassOf rdf:resource="#Violation"/>
+  <rdfs:label>Illegal Maneuver</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ImproperManeuver">
+  <rdfs:subClassOf rdf:resource="#DecisionError"/>
+  <rdfs:label>Improper Maneuver</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ImproperStoppingOrDecelerating">
+  <rdfs:subClassOf rdf:resource="#DecisionError"/>
+  <rdfs:label>Improper Stopping or Decelerating</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#InHurry">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#IncreaseLateralDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LateralDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LateralDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LateralAction"/>
+  <rdfs:comment xml:lang="en">This action describes a continuously kept lateral distance of an entity with respect to a reference entity. The distance can be maintained by using a controller, requiring limiting values for lateral acceleration, lateral deceleration and lateral speed. Without this limiting parameters lateral distance is kept rigid. Distance measurement could either be calculated from the distance between the entities' reference points or from the free space between the entities' bounding boxes.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#LateralAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Applies lateral control behavior on the reference entity/entities. Either a LaneChangeAction, LaneOffsetAction or a LateralDistanceAction.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#IncreaseLongitudinalDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LongitudinalDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LongitudinalDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LongitudinalAction"/>
+  <rdfs:comment xml:lang="en">This action activates a controller for the longitudinal behavior of an entity in a way that a given distance or time gap to the reference entity is maintained.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#IncreaseSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#IntentionalIntersectionViolation">
+  <rdfs:subClassOf rdf:resource="#Violation"/>
+  <rdfs:label>Intentional Intersection Violation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChange">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The cf_vehicle moves from one lane to another where both lanes have the same direction of travel. The lane change ends when the cf_vehicle position in the adjacent lane normalizes.</rdfs:comment>
+  <rdfs:label>LaneChange</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#LateralAction"/>
+  <rdfs:comment xml:lang="en">This action describes the transition between an entity's current lane and its target lane. The target lane may be given in absolute or relative terms. The dynamics of the transition may be given either by providing the time or the distance required for performing the transition. Time and distance are measured between the start position and the end position of the action. The transition starts at the current lane position, including the current lane offset and ends at the target lane position, optionally including a targetLaneOffset. If no targetLaneOffset is specified, it shall be zero after completing the action, so that any previous offset is not taken into account.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChanging">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>Is a driving maneuver that moves a cf_vehicle from one lane to another where both lanes have the same direction of travel.</rdfs:comment>
+  <rdfs:label>LaneChanging</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChangingLeft">
+  <rdfs:subClassOf rdf:resource="#LaneChanging"/>
+  <owl:disjointWith rdf:resource="#LaneChangingRight"/>
+  <rdfs:comment>Is a driving maneuver that moves a cf_vehicle from one lane to the one on the left where both lanes have the same direction of travel.</rdfs:comment>
+  <rdfs:label>Lane changing left</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneChangingRight">
+  <rdfs:subClassOf rdf:resource="#LaneChanging"/>
+  <rdfs:comment>Is a driving maneuver that moves a cf_vehicle from one lane to the one on the right where both lanes have the same direction of travel.</rdfs:comment>
+  <rdfs:label>Lane changing right</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LaneOffsetAction">
+  <rdfs:subClassOf rdf:resource="#LateralAction"/>
+  <rdfs:comment xml:lang="en">This action describes the transition to a defined lane offset of an entity. The lane offset will be kept if the action is set as continuous. The lane offset may be given in absolute or relative terms. The dynamics are specified by providing the maxLateralAcc used to keep the lane offset. Lane offset keeping starts immediately at start of the action and ends after the given duration. Different shapes can be used for the initial transition. Step defines an immediate transition, i.e. a jump from the current lane offset to the target lane offset. Usage of time and distance does not make any sense in combination with step; linear will result in a linear movement between the start and target lane offset; cubic and sinusoidal will result in smooth transitions (basically s-shaped) between start and end state. A smooth transition is only given with cubic and sinusoidal shape.</rdfs:comment>
+  <rdfs:label xml:lang="en">? LaneOffsetAction</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LongDistanceLaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#LaneChangeAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LongTimeLaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#LaneChangeAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#LossOfControl">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The action of losing the control of the cf_vehicle which usually leads to an incident.</rdfs:comment>
+  <rdfs:label>LossOfControl</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#LossingControl">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of loosing the control of the cf_vehicle which usually leads to an incident.</rdfs:comment>
+  <rdfs:label>Loosing control</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MinimumRiskManeuver">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>Minimum Risk Manoeuvre (MRM) means a procedure aimed at minimising risks in traffic, which is automatically performed by the system after a transition demand without cf_driver response or in the case of a severe ALKS or cf_vehicle failure.</rdfs:comment>
+  <rdfs:label>MinimumRiskManeuver</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#MiscActiveObject">
+  <rdfs:subClassOf rdf:resource="#Entity"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Motorbike">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Obstacle">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Overtake">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>To go past another cf_vehicle that is travelling in the same direction.</rdfs:comment>
+  <rdfs:label>Overtake</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#OvertakeSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Panic">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Park">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>Ending the parking action.</rdfs:comment>
+  <rdfs:label>Park</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Parked">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of being stopped an leaving the cf_vehicle temporarily in that spot.</rdfs:comment>
+  <rdfs:label>Parked</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Parking">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The act of bringing (a cf_vehicle that one is driving) to a halt and leave it temporarily, typically in a car park or by the side of the road.</rdfs:comment>
+  <rdfs:label>Parking</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ParkingSpace">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Pass">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>When a cf_vehicle drives past another cf_vehicle in a neighboring lane.</rdfs:comment>
+  <rdfs:label>Pass</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Patch">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#People">
+  <rdfs:subClassOf rdf:resource="#Pedestrian"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PhyOrPhyFactor">
+  <rdfs:subClassOf rdf:resource="#HumanFactor"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#isCauseOf"/>
+      <owl:someValuesFrom>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="#DecisionError"/>
+            <rdf:Description rdf:about="#RecognitionError"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:someValuesFrom>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label>Physical or Physiological Factor</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Pole">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PoorLateralControl">
+  <rdfs:subClassOf rdf:resource="#PerformanceError"/>
+  <rdfs:label>Poor Lateral Control</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#PoorLongitudinalControl">
+  <rdfs:subClassOf rdf:resource="#PerformanceError"/>
+  <rdfs:label>Poor Longitudinal Control</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Precipitation">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Pressure">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PressureOrStrain">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Railing">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Rain">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Reach">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>To arrive at a certain point in distance.</rdfs:comment>
+  <rdfs:label>Reach</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RecognitionFailure">
+  <rdfs:subClassOf rdf:resource="#RecognitionError"/>
+  <rdfs:label>Recognition Failure</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Recognize">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The ability to identify the objects in view based on visual input, and the ability to identify objects across changes in the detailed context in which objects are viewed, including changes in illumination, object pose, and background context.</rdfs:comment>
+  <rdfs:label>Recognize</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#ReduceLateralDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LateralDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ReduceLongitudinalDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LongitudinalDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ReduceSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RelativeSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Rise">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>To get up from lying, sitting, or kneeling.</rdfs:comment>
+  <rdfs:label>Rise</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Rising">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The act of standing up after being on the floor or sat down.</rdfs:comment>
+  <rdfs:label>Rising</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#RoadMark">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#RoutingAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Controls entity routing, either by following a predefined route or trajectory, alternatively by specifying a destination position which the entity should aim to reach.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Running">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of movement of a runner.</rdfs:comment>
+  <rdfs:label>Running</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SafeStop">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>The action of decelerating until stopping safely. For instance, in front of a traffic light or in a traffic jam.</rdfs:comment>
+  <rdfs:label>SafeStop</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SameLateralDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LateralDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SameLongitudinalDistanceAction">
+  <rdfs:subClassOf rdf:resource="#LongitudinalDistanceAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SameSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Screaming">
+  <rdfs:subClassOf rdf:resource="#BeingAction"/>
+  <rdfs:label>Screaming</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SelfConfidence">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Semitrailer">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ShortDistanceLaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#LaneChangeAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ShortTimeLaneChangeAction">
+  <rdfs:subClassOf rdf:resource="#LaneChangeAction"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Sitting">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of being resting on a seat or other type of support, with the upper part of the body vertical.</rdfs:comment>
+  <rdfs:label>Sitting</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Snow">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SoundBarrier">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#SpeedRelated">
+  <rdfs:subClassOf rdf:resource="#DecisionError"/>
+  <rdfs:label>Speed Related Error</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SpeedViolation">
+  <rdfs:subClassOf rdf:resource="#Violation"/>
+  <rdfs:label>Speed Violation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Standing">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of being in a vertical state without moving.</rdfs:comment>
+  <rdfs:label>Standing</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Standstill">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>A situation or condition in which there is no movement or activity at all.</rdfs:comment>
+  <rdfs:label>Standstill</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Stopped">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of not moving at all. In the case of a cf_vehicle implies having the engine turned off.</rdfs:comment>
+  <rdfs:label>Stopped</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Stopping">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The act of stopping occurs when a subject starts decelerating until being stationary.</rdfs:comment>
+  <rdfs:label>Stopping</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#StreetLamp">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Swerve">
+  <rdfs:subClassOf rdf:resource="#Event"/>
+  <rdfs:comment>To suddenly change direction.</rdfs:comment>
+  <rdfs:label>Swerve</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Swerving">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>When a cf_vehicle changes direction, especially suddenly.</rdfs:comment>
+  <rdfs:label>Swerving</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#SynchronizeAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Synchronizes an entity's arrival at a destination with a master entity. Both entities are provided with their own reference position which shall be reached at the same time. Final speed can be specified. Note that the reference positions can be different or identical.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Talking">
+  <rdfs:subClassOf rdf:resource="#BeingAction"/>
+  <rdfs:label>Talking</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TeleportAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Assigns a position to the reference entity/entities. Specifying a target position an entity is teleported to.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Temperature">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#TrafficIsland">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Trailer">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Train">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Tram">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Tree">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Truck">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Turning">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>To move in a circular direction wholly or partly round an axis or point.</rdfs:comment>
+  <rdfs:label>Turning</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TurningLeft">
+  <rdfs:subClassOf rdf:resource="#Turning"/>
+  <rdfs:comment>To move in a circular direction wholly or partly round an axis or point to the left.</rdfs:comment>
+  <rdfs:label>Turning left</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#TurningRight">
+  <rdfs:subClassOf rdf:resource="#Turning"/>
+  <rdfs:comment>To move in a circular direction wholly or partly round an axis or point to the right.</rdfs:comment>
+  <rdfs:label>Turning right</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#UTurning">
+  <rdfs:subClassOf rdf:resource="#Turning"/>
+  <rdfs:comment>A U-shaped turn made by a cf_vehicle so as to head in the opposite direction from its original course.</rdfs:comment>
+  <rdfs:label>uTurning</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Uncertainty">
+  <rdfs:subClassOf rdf:resource="#MentalOrEmotionalFactor"/>
+</owl:Class>
+
+<owl:Class rdf:about="#UnintentionalIntersectionViolation">
+  <rdfs:subClassOf rdf:resource="#Violation"/>
+  <rdfs:label>Unintentional Intersection Violation</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#UserDefinedAction">
+  <rdfs:subClassOf rdf:resource="#Action"/>
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Van">
+  <rdfs:subClassOf rdf:resource="#Vehicle"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Vegetation">
+  <rdfs:subClassOf rdf:resource="#MiscStaticObject"/>
+</owl:Class>
+
+<owl:Class rdf:about="#VisibilityAction">
+  <rdfs:subClassOf rdf:resource="#PrivateAction"/>
+  <rdfs:comment xml:lang="en">Applies lateral control behavior on the reference entity/entities. Either a LaneChangeAction, LaneOffsetAction or a LateralDistanceAction.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Waiting">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of staying where one is or delaying action until a particular time or event.</rdfs:comment>
+  <rdfs:label>Waiting</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Walking">
+  <rdfs:subClassOf rdf:resource="#ToDelete"/>
+  <rdfs:comment>The action of moving at a regular pace by lifting and setting down each foot in turn.</rdfs:comment>
+  <rdfs:label>Walking</rdfs:label>
+</owl:Class>
+
+<owl:Class rdf:about="#Wheelchair">
+  <rdfs:subClassOf rdf:resource="#Pedestrian"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Wind">
+  <rdfs:subClassOf rdf:resource="#Weather"/>
+</owl:Class>
+
+<owl:Class rdf:about="#ZeroSpeedAction">
+  <rdfs:subClassOf rdf:resource="#SpeedAction"/>
+</owl:Class>
+
+<PhyOrPhyFactor rdf:about="#AlcoholImpairment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_AlcoholImpairment</rdfs:label>
+</PhyOrPhyFactor>
+
+<Lane rdf:about="#BikingLane">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>so_BikingLane</rdfs:label>
+</Lane>
+
+<VehicleFactor rdf:about="#BrakeProblem">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_BrakeProblem</rdfs:label>
+</VehicleFactor>
+
+<rdf:Description rdf:about="#Deafness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_Deafness</rdfs:label>
+</rdf:Description>
+
+<ExperienceFactor rdf:about="#DrivingExperience">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ef_DrivingExperience</rdfs:label>
+</ExperienceFactor>
+
+<Lane rdf:about="#DrivingLane">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>so_DrivingLane</rdfs:label>
+</Lane>
+
+<rdf:Description rdf:about="#Drowsy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_Drowsy</rdfs:label>
+</rdf:Description>
+
+<PhyOrPhyFactor rdf:about="#DrugImpairment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_DrugImpairment</rdfs:label>
+</PhyOrPhyFactor>
+
+<VehicleFactor rdf:about="#EngineSystemFailure">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_EngineSystemFailure</rdfs:label>
+</VehicleFactor>
+
+<PhyOrPhyFactor rdf:about="#Fatigued">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_Fatigued</rdfs:label>
+</PhyOrPhyFactor>
+
+<VehicleFactor rdf:about="#FunctionalFailure">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_FunctionalFailure</rdfs:label>
+</VehicleFactor>
+
+<VehicleFactor rdf:about="#LightingProblem">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_LightingProblem</rdfs:label>
+</VehicleFactor>
+
+<PhyOrPhyFactor rdf:about="#ReducedVision">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ppf_ReducedVision</rdfs:label>
+</PhyOrPhyFactor>
+
+<ExperienceFactor rdf:about="#RoadAreaUnfamiliarity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ef_RoadAreaUnfamiliarity</rdfs:label>
+</ExperienceFactor>
+
+<VehicleFactor rdf:about="#SensorFailure">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_SensorFailure</rdfs:label>
+</VehicleFactor>
+
+<Lane rdf:about="#SidewalkLane">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>so_SidewalkLane</rdfs:label>
+</Lane>
+
+<VehicleFactor rdf:about="#SteeringProblem">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_SteeringProblem</rdfs:label>
+</VehicleFactor>
+
+<VehicleFactor rdf:about="#TireWheelProblem">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_TireWheelProblem</rdfs:label>
+</VehicleFactor>
+
+<Road rdf:about="#TownRoadType">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>so_TownRoadType</rdfs:label>
+</Road>
+
+<ExperienceFactor rdf:about="#VehicleUnfamiliarity">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>ef_VehicleUnfamiliarity</rdfs:label>
+</ExperienceFactor>
+
+<VehicleFactor rdf:about="#VisionObscured">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <rdfs:label>vf_VisionObscured</rdfs:label>
+</VehicleFactor>
+
+<AvoidingConflict rdf:about="#de_ac_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AvoidingConflict>
+
+<AvoidingConflict rdf:about="#de_ac_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AvoidingConflict>
+
+<AvoidingConflict rdf:about="#de_ac_03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AvoidingConflict>
+
+<AvoidingConflict rdf:about="#de_ac_04">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AvoidingConflict>
+
+<ImproperManeuver rdf:about="#de_im_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_04">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_05">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_06">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperManeuver rdf:about="#de_im_07">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperManeuver>
+
+<ImproperStoppingOrDecelerating rdf:about="#de_isd_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperStoppingOrDecelerating>
+
+<ImproperStoppingOrDecelerating rdf:about="#de_isd_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</ImproperStoppingOrDecelerating>
+
+<SpeedRelated rdf:about="#de_sr_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</SpeedRelated>
+
+<SpeedRelated rdf:about="#de_sr_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</SpeedRelated>
+
+<rdf:Description rdf:about="#de_sr_03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_AwarenessSurroundings">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_DrivingConditionRecognition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_HazardsRecognition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_MakingEvasiveManeuvering">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_MakingGoodAndQuickDecision">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_RoadSignsRecognition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ms_UnderstandingVehicleDynamics">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<PoorLateralControl rdf:about="#pe_plc_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PoorLateralControl>
+
+<PoorLateralControl rdf:about="#pe_plc_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PoorLateralControl>
+
+<PoorLongitudinalControl rdf:about="#pe_plongc_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</PoorLongitudinalControl>
+
+<rdf:Description rdf:about="#ps_CorrectDepressingAccPedal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_CorrectDepressingBrakePedal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_CorrectDepressingClutchPedal">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_CorrectGearSetting">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_CorrectSteeringDirection">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_ProperHandPlacement">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_ProperSeatingPosition">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_UseOfHeadlights">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_UseOfIndicators">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_UseOfParkingBrake">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ps_UseOfWindshieldWipers">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<DistractionError rdf:about="#re_d_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DistractionError>
+
+<DistractionError rdf:about="#re_d_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</DistractionError>
+
+<RecognitionFailure rdf:about="#re_rf_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_04">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_05">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_06">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_07">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<RecognitionFailure rdf:about="#re_rf_08">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</RecognitionFailure>
+
+<rdf:Description rdf:about="#ss_AdjustingFollowingDistance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_DelayedAcceleration">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_FatigueAndDrowsiness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_HeadlightAdjustments">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_HillAscending">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_HillDescending">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_IntersectionApproachAndProceed">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_LaneChanges">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_MitigatingDistractionsInsideCar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_PassingSafely">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_Scanning">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_SharingRoadWithAnimals">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_SharingRoadWithLargerVehicles">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_SharingRoadWithPedestrians">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_SharingRoadWithSmallerVehicles">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_SpeedAdjustment">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_StoppingDistance">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_Turns">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_VehicleInspectionInside">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_VehicleInspectionOutside">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="#ss_VisibilityAdjustments">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</rdf:Description>
+
+<TeleportAction rdf:about="#teleport_action_Ego">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</TeleportAction>
+
+<TeleportAction rdf:about="#teleport_action_Ped1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</TeleportAction>
+
+<IntentionalIntersectionViolation rdf:about="#v_iiv_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IntentionalIntersectionViolation>
+
+<IntentionalIntersectionViolation rdf:about="#v_iiv_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IntentionalIntersectionViolation>
+
+<IntentionalIntersectionViolation rdf:about="#v_iiv_03">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IntentionalIntersectionViolation>
+
+<IntentionalIntersectionViolation rdf:about="#v_iiv_04">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IntentionalIntersectionViolation>
+
+<IntentionalIntersectionViolation rdf:about="#v_iiv_05">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IntentionalIntersectionViolation>
+
+<IllegalManeuver rdf:about="#v_im_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IllegalManeuver>
+
+<IllegalManeuver rdf:about="#v_im_02">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</IllegalManeuver>
+
+<SpeedViolation rdf:about="#v_sv_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</SpeedViolation>
+
+<UnintentionalIntersectionViolation rdf:about="#v_uiv_01">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</UnintentionalIntersectionViolation>
+
+<Car rdf:about="#0_Ego">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <performsAction rdf:resource="#0_absolute_speed_action_Ego"/>
+</Car>
+
+<AbsoluteSpeedAction rdf:about="#0_absolute_speed_action_Ego">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AbsoluteSpeedAction>
+
+<People rdf:about="#0_Ped1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <performsAction rdf:resource="#0_teleport_action_Ped1"/>
+</People>
+
+<TeleportAction rdf:about="#0_teleport_action_Ped1">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</TeleportAction>
+
+<Car rdf:about="#0_JamCar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <performsAction rdf:resource="#0_absolute_speed_action_JamCar"/>
+</Car>
+
+<AbsoluteSpeedAction rdf:about="#0_absolute_speed_action_JamCar">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</AbsoluteSpeedAction>
+
+<TeleportAction rdf:about="#0_teleport_action_Ego">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</TeleportAction>
+
+<Driver rdf:about="#0_Andrea">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  <driverIsImpaired rdf:resource="#0_test_name"/>
+  <driverIsOnVehicle rdf:resource="#0_JamCar"/>
+</Driver>
+
+<Distraction rdf:about="#0_test_name">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+</Distraction>
+
+<owl:AllDifferent>
+  <owl:distinctMembers rdf:parseType="Collection">
+    <rdf:Description rdf:about="#ms_AwarenessSurroundings"/>
+    <rdf:Description rdf:about="#ms_DrivingConditionRecognition"/>
+    <rdf:Description rdf:about="#ms_HazardsRecognition"/>
+    <rdf:Description rdf:about="#ms_MakingEvasiveManeuvering"/>
+    <rdf:Description rdf:about="#ms_MakingGoodAndQuickDecision"/>
+    <rdf:Description rdf:about="#ms_RoadSignsRecognition"/>
+    <rdf:Description rdf:about="#ms_UnderstandingVehicleDynamics"/>
+    <rdf:Description rdf:about="#ps_CorrectDepressingAccPedal"/>
+    <rdf:Description rdf:about="#ps_CorrectDepressingBrakePedal"/>
+    <rdf:Description rdf:about="#ps_CorrectDepressingClutchPedal"/>
+    <rdf:Description rdf:about="#ps_CorrectGearSetting"/>
+    <rdf:Description rdf:about="#ps_CorrectSteeringDirection"/>
+    <rdf:Description rdf:about="#ps_ProperHandPlacement"/>
+    <rdf:Description rdf:about="#ps_ProperSeatingPosition"/>
+    <rdf:Description rdf:about="#ps_UseOfHeadlights"/>
+    <rdf:Description rdf:about="#ps_UseOfIndicators"/>
+    <rdf:Description rdf:about="#ps_UseOfParkingBrake"/>
+    <rdf:Description rdf:about="#ps_UseOfWindshieldWipers"/>
+    <rdf:Description rdf:about="#ss_AdjustingFollowingDistance"/>
+    <rdf:Description rdf:about="#ss_DelayedAcceleration"/>
+    <rdf:Description rdf:about="#ss_FatigueAndDrowsiness"/>
+    <rdf:Description rdf:about="#ss_HeadlightAdjustments"/>
+    <rdf:Description rdf:about="#ss_HillAscending"/>
+    <rdf:Description rdf:about="#ss_HillDescending"/>
+    <rdf:Description rdf:about="#ss_IntersectionApproachAndProceed"/>
+    <rdf:Description rdf:about="#ss_LaneChanges"/>
+    <rdf:Description rdf:about="#ss_MitigatingDistractionsInsideCar"/>
+    <rdf:Description rdf:about="#ss_PassingSafely"/>
+    <rdf:Description rdf:about="#ss_Scanning"/>
+    <rdf:Description rdf:about="#ss_SharingRoadWithAnimals"/>
+    <rdf:Description rdf:about="#ss_SharingRoadWithLargerVehicles"/>
+    <rdf:Description rdf:about="#ss_SharingRoadWithPedestrians"/>
+    <rdf:Description rdf:about="#ss_SharingRoadWithSmallerVehicles"/>
+    <rdf:Description rdf:about="#ss_SpeedAdjustment"/>
+    <rdf:Description rdf:about="#ss_StoppingDistance"/>
+    <rdf:Description rdf:about="#ss_Turns"/>
+    <rdf:Description rdf:about="#ss_VehicleInspectionInside"/>
+    <rdf:Description rdf:about="#ss_VehicleInspectionOutside"/>
+    <rdf:Description rdf:about="#ss_VisibilityAdjustments"/>
+  </owl:distinctMembers>
+</owl:AllDifferent>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#TurningLeft"/>
+    <rdf:Description rdf:about="#TurningRight"/>
+    <rdf:Description rdf:about="#UTurning"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#ExperienceFactor"/>
+    <rdf:Description rdf:about="#MentalOrEmotionalFactor"/>
+    <rdf:Description rdf:about="#PhyOrPhyFactor"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Entity"/>
+    <rdf:Description rdf:about="#Junction"/>
+    <rdf:Description rdf:about="#Lane"/>
+    <rdf:Description rdf:about="#Road"/>
+    <rdf:Description rdf:about="#Section"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#DecisionError"/>
+    <rdf:Description rdf:about="#PerformanceError"/>
+    <rdf:Description rdf:about="#RecognitionError"/>
+    <rdf:Description rdf:about="#Violation"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Daylight"/>
+    <rdf:Description rdf:about="#Fog"/>
+    <rdf:Description rdf:about="#Hail"/>
+    <rdf:Description rdf:about="#Haze"/>
+    <rdf:Description rdf:about="#Humidity"/>
+    <rdf:Description rdf:about="#Precipitation"/>
+    <rdf:Description rdf:about="#Pressure"/>
+    <rdf:Description rdf:about="#Rain"/>
+    <rdf:Description rdf:about="#Snow"/>
+    <rdf:Description rdf:about="#Temperature"/>
+    <rdf:Description rdf:about="#Wind"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:AllDisjointClasses>
+  <owl:members rdf:parseType="Collection">
+    <rdf:Description rdf:about="#Animal"/>
+    <rdf:Description rdf:about="#People"/>
+    <rdf:Description rdf:about="#Wheelchair"/>
+  </owl:members>
+</owl:AllDisjointClasses>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_uiv_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#UnintentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Signla violation, apparently did not see signal.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_sv_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#SpeedViolation"/>
+  <rdfs:comment xml:lang="en">Exceed speed limit.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_im_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IllegalManeuver"/>
+  <rdfs:comment xml:lang="en">Illegal passing.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_im_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IllegalManeuver"/>
+  <rdfs:comment xml:lang="en">Illegal u-turn.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_iiv_05"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IntentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Failed to signal.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_iiv_04"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IntentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Stop sign violation, intentionally ran stop sign at speed.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_iiv_03"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IntentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Stop sign violation, "rolling stop".</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_iiv_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IntentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Signal violation, tried to beat a signal change.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#v_iiv_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#IntentionalIntersectionViolation"/>
+  <rdfs:comment xml:lang="en">Signal violation, intentionally disregarded signal.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_08"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Improper recognition of road surface.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_07"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Right of way error in relation to pedestrian, apparent recognition failure.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_06"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Right of way error in relation to other cf_vehicle, apparent recognition failure.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_05"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Did not realize concrete barrier.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_04"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Did not see other pedestrian during lane changing.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_03"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Did not see other pedestrian during merging.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Did not see other cf_vehicle during lane changing.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_rf_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#RecognitionFailure"/>
+  <rdfs:comment xml:lang="en">Did not see other cf_vehicle during merging.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_d_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#DistractionError"/>
+  <rdfs:comment xml:lang="en">Driver is distracted by external factor.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#re_d_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#DistractionError"/>
+  <rdfs:comment xml:lang="en">Driver is distracted by internal factor.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#pe_plongc_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#PoorLongitudinalControl"/>
+  <rdfs:comment xml:lang="en">Driver did not accelerate enough.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#pe_plc_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#PoorLateralControl"/>
+  <rdfs:comment xml:lang="en">Improper turn, wide right turn.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#pe_plc_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#PoorLateralControl"/>
+  <rdfs:comment xml:lang="en">Improper turn, wide left turn.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_sr_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#SpeedRelated"/>
+  <rdfs:comment xml:lang="en">Driving slowly in relation to other traffic.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_sr_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#SpeedRelated"/>
+  <rdfs:comment xml:lang="en">Exceeded safe speed but not speed limit.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_isd_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperStoppingOrDecelerating"/>
+  <rdfs:comment xml:lang="en">Sudden or improper stopping.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_isd_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperStoppingOrDecelerating"/>
+  <rdfs:comment xml:lang="en">Sudden or improper braking.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_07"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Improper turn, cut corner on right turn.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_06"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Improper turn, cut corner on left turn.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_05"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Driving in other cf_vehicle's blind zone.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_04"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Cutting in, too in front of other cf_vehicle.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_03"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Cutting in, too close behind of other cf_vehicle.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Wrong side of road, not overtaking.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_im_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#ImproperManeuver"/>
+  <rdfs:comment xml:lang="en">Following too closely.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_ac_04"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#AvoidingConflict"/>
+  <rdfs:comment xml:lang="en">Avoiding other object or parked cf_vehicle.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_ac_03"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#AvoidingConflict"/>
+  <rdfs:comment xml:lang="en">Avoiding other cf_vehicle</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_ac_02"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#AvoidingConflict"/>
+  <rdfs:comment xml:lang="en">Avoiding pedestrian.</rdfs:comment>
+</owl:Axiom>
+
+<owl:Axiom>
+  <owl:annotatedSource rdf:resource="#de_ac_01"/>
+  <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+  <owl:annotatedTarget rdf:resource="#AvoidingConflict"/>
+  <rdfs:comment xml:lang="en">Avoiding animal.</rdfs:comment>
+</owl:Axiom>
+
+
+</rdf:RDF>

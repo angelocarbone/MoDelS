@@ -1,0 +1,45 @@
+esmini GIT REV: dd72f6b
+esmini GIT TAG: v2.13.6
+esmini GIT BRANCH: tags/v2.13.6^0
+esmini BUILD VERSION: 2.13.6.build.1745
+Loading python_scenario.xosc (v1.1)
+OpenDRIVE: ../xodr/fabriksgatan.xodr
+Scenegraph: ../models/fabriksgatan.osgb
+Route::AddWaypoint Added waypoint 0: 2, -1, 100.00
+Route::AddWaypoint Added intermediate waypoint 1 roadId 15 laneId -1
+Route::AddWaypoint Added waypoint 2: 1, -1, 0.00
+0.000: Init Ego RoutingAction standbyState -> startTransition -> runningState
+0.000: Ego New position:
+0.000: Pos(28.96, -9.82, 0.00) Rot(1.78, 0.00, 0.00) roadId 0 laneId 1 offset 0.00 t 1.75
+0.000: Init Ego TeleportAction standbyState -> startTransition -> runningState
+0.000: Init Ego LongitudinalAction standbyState -> endTransition -> completeState
+0.000: Ped1 New position:
+0.000: Pos(-26.26, 289.78, 0.00) Rot(1.78, 0.00, 0.00) roadId 2 laneId 3 offset 0.50 t 5.30
+0.000: Init Ped1 TeleportAction standbyState -> startTransition -> runningState
+0.000: JamCar New position:
+0.000: Pos(25.53, -10.56, 0.00) Rot(4.92, 0.00, 0.00) roadId 0 laneId -1 offset 0.00 t -1.75
+0.000: Init JamCar TeleportAction standbyState -> startTransition -> runningState
+0.000: Init JamCar LongitudinalAction standbyState -> endTransition -> completeState
+0.000: Init Ego RoutingAction runningState -> endTransition -> completeState
+0.000: Init Ego TeleportAction runningState -> endTransition -> completeState
+0.000: Init Ped1 TeleportAction runningState -> endTransition -> completeState
+0.000: Init JamCar TeleportAction runningState -> endTransition -> completeState
+0.010: Trigger /------------------------------------------------
+0.010: ActStartCondition == true, 0.0100 > 0.00 edge: none
+0.010: Trigger  ------------------------------------------------/
+0.010: LTAPActNPC standbyState -> startTransition -> runningState
+0.024: Trigger /------------------------------------------------
+0.024: ped_walk_event == true, traveled_dist: 219.47 >= 5.00, edge: rising
+0.024: Triggering entity 0: Ego
+0.024: Trigger  ------------------------------------------------/
+0.088: walk_speed standbyState -> startTransition -> runningState
+0.088: walk_route standbyState -> startTransition -> runningState
+0.088: ped_walk_event standbyState -> startTransition -> runningState
+0.207: Trigger /------------------------------------------------
+0.207: lane_change_Condition == true, 0.2070 > 0.20 edge: rising
+0.207: Trigger  ------------------------------------------------/
+0.223: lane_change_Action standbyState -> startTransition -> runningState
+0.223: lane_change_Event standbyState -> startTransition -> runningState
+0.807: walk_speed runningState -> endTransition -> completeState
+1.224: Quit requested from viewer - probably ESC button pressed
+Closing

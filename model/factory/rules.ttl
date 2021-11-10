@@ -1,0 +1,9 @@
+@prefix : <http://www.angelocarbone.com/rules/MoDelS#> .
+
+:r001	:driverIsImpaired :Distraction ;
+	    :performsAction :DrivingStraight ;
+	    :nextAction :Colliding .
+
+:r002 	:driverIsImpaired :Drowsy ;
+	    :performsAction :DrivingStraight ;
+	    :nextAction :Stopping .

@@ -1,0 +1,91 @@
+@prefix mds: <http://angelocarbone.com/rules/MoDelS#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mds:de_im_02 a mds:ImproperManeuver ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseSpeedAction,
+        mds:LongDistanceLaneChangeAction,
+        mds:LongTimeLaneChangeAction,
+        mds:OvertakeSpeedAction,
+        mds:SameSpeedAction,
+        mds:ShortDistanceLaneChangeAction,
+        mds:ShortTimeLaneChangeAction ;
+    rdfs:comment "Wrong side of road, not overtaking."@en .
+
+mds:de_isd_01 a mds:ImproperStoppingOrDecelerating ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:ReduceSpeedAction ;
+    rdfs:comment "Sudden or improper braking."@en .
+
+mds:de_isd_02 a mds:ImproperStoppingOrDecelerating ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:ZeroSpeedAction ;
+    rdfs:comment "Sudden or improper stopping."@en .
+
+mds:de_sr_01 a mds:SpeedRelatedError ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseSpeedAction ;
+    rdfs:comment "Exceeded safe speed but not speed limit."@en .
+
+mds:de_sr_02 a mds:SpeedRelatedError ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:ReduceSpeedAction,
+        mds:SameSpeedAction,
+        mds:ZeroSpeedAction ;
+    rdfs:comment "Driving slowly in relation to other traffic."@en .
+
+mds:pe_plong_01 a mds:PoorLongitudinalControl ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:ReduceSpeedAction,
+        mds:SameSpeedAction ;
+    rdfs:comment "Driver did not accelerate enough."@en .
+
+mds:re_d_01 a mds:DistractionError ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseLateralDistanceAction,
+        mds:IncreaseSpeedAction,
+        mds:LongDistanceLaneChangeAction,
+        mds:LongTimeLaneChangeAction,
+        mds:OvertakeSpeedAction,
+        mds:ReduceLateralDistanceAction,
+        mds:ReduceSpeedAction,
+        mds:SameLateralDistanceAction,
+        mds:SameSpeedAction,
+        mds:ShortDistanceLaneChangeAction,
+        mds:ShortTimeLaneChangeAction ;
+    rdfs:comment "Driver is distracted by internal secondary task or factor."@en .
+
+mds:re_d_02 a mds:DistractionError ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseLateralDistanceAction,
+        mds:IncreaseSpeedAction,
+        mds:LongDistanceLaneChangeAction,
+        mds:LongTimeLaneChangeAction,
+        mds:ReduceLateralDistanceAction,
+        mds:SameLateralDistanceAction,
+        mds:SameSpeedAction,
+        mds:ShortDistanceLaneChangeAction,
+        mds:ShortTimeLaneChangeAction ;
+    rdfs:comment "Driver is distracted by external factor."@en .
+
+mds:re_rf_05 a mds:RecognitionFailure ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseLateralDistanceAction,
+        mds:IncreaseSpeedAction,
+        mds:LongDistanceLaneChangeAction,
+        mds:LongTimeLaneChangeAction,
+        mds:OvertakeSpeedAction,
+        mds:ReduceLateralDistanceAction,
+        mds:ReduceSpeedAction,
+        mds:SameLateralDistanceAction,
+        mds:ShortDistanceLaneChangeAction,
+        mds:ShortTimeLaneChangeAction,
+        mds:ZeroSpeedAction ;
+    rdfs:comment "Did not realize concrete barrier."@en .
+
+mds:v_sv_01 a mds:SpeedViolation ;
+    mds:duringAction mds:LongitudinalAction ;
+    mds:errorTriggerAction mds:IncreaseSpeedAction,
+        mds:OvertakeSpeedAction ;
+    rdfs:comment "Exceed speed limit."@en .
+

@@ -1,0 +1,75 @@
+esmini GIT REV: dd72f6b
+esmini GIT TAG: v2.13.6
+esmini GIT BRANCH: tags/v2.13.6^0
+esmini BUILD VERSION: 2.13.6.build.1745
+Loading python_scenario.xosc (v1.1)
+OpenDRIVE: ../xodr/fabriksgatan.xodr
+Scenegraph: ../models/fabriksgatan.osgb
+Route::AddWaypoint Added waypoint 0: 0, 1, 63.00
+Route::AddWaypoint Added intermediate waypoint 1 roadId 9 laneId -1
+Route::AddWaypoint Added waypoint 2: 2, 1, 0.00
+Position::Set Warning: s (150.00) too large, track 0 only 93.66 m long
+
+Route::AddWaypoint Added waypoint 0: 2, -1, 280.00
+Position::Set Warning: s (100.00) too large, track 0 only 93.66 m long
+
+Route::AddWaypoint Added intermediate waypoint 1 roadId 14 laneId -1
+Route::AddWaypoint Added waypoint 2: 0, -1, 93.66
+0.000: Init Ego RoutingAction standbyState -> startTransition -> runningState
+0.000: Ego New position:
+0.000: Pos(28.96, -9.82, 0.00) Rot(1.78, 0.00, 0.00) roadId 0 laneId 1 offset 0.00 t 1.75
+0.000: Init Ego TeleportAction standbyState -> startTransition -> runningState
+0.000: Init Ego LongitudinalAction standbyState -> endTransition -> completeState
+0.000: Ped1 New position:
+0.000: Pos(51.54, -101.37, 0.00) Rot(1.66, 0.00, 0.00) roadId 0 laneId 3 offset 0.50 t 5.30
+0.000: Init Ped1 TeleportAction standbyState -> startTransition -> runningState
+0.000: Init JamCar RoutingAction standbyState -> startTransition -> runningState
+0.000: Init JamCar LongitudinalAction standbyState -> endTransition -> completeState
+0.000: Init Ego RoutingAction runningState -> endTransition -> completeState
+0.000: Init Ego TeleportAction runningState -> endTransition -> completeState
+0.000: Init Ped1 TeleportAction runningState -> endTransition -> completeState
+0.000: Init JamCar RoutingAction runningState -> endTransition -> completeState
+0.000: Position::Set Error: track -1 not found
+
+0.000: Position::Set Error: track -1 not found
+
+0.010: Trigger /------------------------------------------------
+0.010: ActStartCondition == true, 0.0100 > 0.00 edge: none
+0.010: Trigger  ------------------------------------------------/
+0.010: LTAPActNPC standbyState -> startTransition -> runningState
+0.024: Trigger /------------------------------------------------
+0.024: ped_walk_event == true, traveled_dist: 62.91 >= 5.00, edge: rising
+0.024: Triggering entity 0: Ego
+0.024: Trigger  ------------------------------------------------/
+0.106: walk_speed standbyState -> startTransition -> runningState
+0.106: walk_route standbyState -> startTransition -> runningState
+0.106: ped_walk_event standbyState -> startTransition -> runningState
+0.807: walk_speed runningState -> endTransition -> completeState
+2.006: Trigger /------------------------------------------------
+2.006: brake_and_accelerate_Condition == true, 2.0060 > 2.00 edge: rising
+2.006: Trigger  ------------------------------------------------/
+2.006: brake_and_accelerate_Event complete after 1 execution
+2.023: brake_and_accelerate_Action standbyState -> endTransition -> completeState
+2.023: brake_and_accelerate_Event standbyState -> endTransition -> completeState
+3.423: Trigger /------------------------------------------------
+3.423: brake_Condition == true, TTC: 1.69 < 1.70, edge rising
+3.423: Triggering entity 0: Ego
+3.423: Trigger  ------------------------------------------------/
+3.440: brake_Action standbyState -> startTransition -> runningState
+3.440: brake_Event standbyState -> startTransition -> runningState
+4.006: Trigger /------------------------------------------------
+4.006: brake_and_accelerate_Condition == true, 4.0060 > 4.00 edge: rising
+4.006: Trigger  ------------------------------------------------/
+4.023: brake_and_accelerate_Action standbyState -> startTransition -> runningState
+4.023: brake_and_accelerate_Event standbyState -> startTransition -> runningState
+5.423: brake_Event complete after 1 execution
+5.440: brake_Action runningState -> endTransition -> completeState
+5.440: brake_Event runningState -> endTransition -> completeState
+8.006: Trigger /------------------------------------------------
+8.006: brake_Condition == true, 8.0060 > 8.00 edge: rising
+8.006: Trigger  ------------------------------------------------/
+8.023: brake_Action standbyState -> startTransition -> runningState
+8.023: brake_Event standbyState -> startTransition -> runningState
+9.023: brake_Event complete after 1 execution
+9.040: brake_Action runningState -> endTransition -> completeState
+9.040: brake_Event runningState -> endTransition -> completeState

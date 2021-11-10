@@ -1,0 +1,109 @@
+from rdflib.term import URIRef
+from rdflib.namespace import DefinedNamespace, Namespace
+
+
+class MDS(DefinedNamespace):
+    """
+        Friend of a Friend (FOAF) vocabulary
+
+        The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.
+
+        Generated from: http://xmlns.com/foaf/spec/index.rdf
+        Date: 2020-05-26 14:20:01.597998
+
+    """
+    _fail = True
+
+    # Classes
+    # http://www.angelocarbone.com/ontologies/MoDO#
+
+
+    # Properties
+    # http://www.angelocarbone.com/ontologies/MoDO#
+    isCausedBy: URIRef
+
+    # Individuals
+
+    # Decision Error -> Avoiding Collision
+    de_ac_01: URIRef
+    de_ac_02: URIRef
+    de_ac_03: URIRef
+    de_ac_04: URIRef
+    # Decision Error -> Improper Maneuver
+    de_im_01: URIRef
+    de_im_02: URIRef
+    de_im_03: URIRef
+    de_im_04: URIRef
+    de_im_05: URIRef
+    de_im_06: URIRef
+    de_im_07: URIRef
+    # Decision Error -> Improper Stopping or Decelerating
+    de_isd_01: URIRef
+    de_isd_02: URIRef
+    # Decision Error -> Speed Related Error
+    de_sp_01: URIRef
+    de_sp_02: URIRef
+    de_sp_03: URIRef
+    # Human Factor -> Experience Factor
+    ef_DrivingExperience: URIRef
+    ef_RoadAreaUnfamiliarity: URIRef
+    ef_VehicleUnfamiliarity: URIRef
+    # Human Factor -> Mental or Emotional Factor
+    me_Distraction: URIRef
+    me_EmotionalUpset: URIRef
+    me_Frustration: URIRef
+    me_InHurry: URIRef
+    me_Panic: URIRef
+    me_PressureOrStrain: URIRef
+    me_SelfConfidence: URIRef
+    me_Uncertainty: URIRef
+    # Performance Error -> Poor Lateral Control
+    pe_plc_01: URIRef
+    pe_plc_02: URIRef
+    # Performance Error -> Poor Longitudinal Control
+    pe_plongc_01: URIRef
+    # Human Factor -> Physical or Physiological Factor
+    ppf_AlcoholImpairment: URIRef
+    ppf_Deafness: URIRef
+    ppf_Drowsy: URIRef
+    ppf_DrugImpairment: URIRef
+    ppf_Fatigued: URIRef
+    ppf_ReducedVision: URIRef
+    # Recognition Error -> Distraction Error
+    re_d_01: URIRef
+    re_d_02: URIRef
+    # Recognition Error -> Recognition Failure
+    re_rf_01: URIRef
+    re_rf_02: URIRef
+    re_rf_03: URIRef
+    re_rf_04: URIRef
+    re_rf_05: URIRef
+    re_rf_06: URIRef
+    re_rf_07: URIRef
+    re_rf_08: URIRef
+    # Violation -> Intentional Intersection Violation
+    v_iiv_01: URIRef
+    v_iiv_02: URIRef
+    v_iiv_03: URIRef
+    v_iiv_04: URIRef
+    v_iiv_05: URIRef
+    # Violation -> Illegal Maneuver
+    v_im_01: URIRef
+    v_im_02: URIRef
+    # Violation -> Speed Violation
+    v_sv_01: URIRef
+    # Violation -> Unintentional Intersection Violation
+    v_uiv_01: URIRef
+    # Vehicle Factor
+    vf_BrakeProblem: URIRef
+    vf_EngineSystemFailure: URIRef
+    vf_FunctionalFailure: URIRef
+    vf_LightingProblem: URIRef
+    vf_SensorFailure: URIRef
+    vf_SteeringProblem: URIRef
+    vf_TireWheelProblem: URIRef
+    vf_VisionObscured: URIRef
+
+    _NS = Namespace("http://angelocarbone.com/ontology/MoDO/0.2.0")
+
+

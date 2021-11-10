@@ -1,0 +1,46 @@
+esmini GIT REV: dd72f6b
+esmini GIT TAG: v2.13.6
+esmini GIT BRANCH: tags/v2.13.6^0
+esmini BUILD VERSION: 2.13.6.build.1745
+Loading python_scenario.xosc (v1.1)
+OpenDRIVE: ../xodr/fabriksgatan.xodr
+Scenegraph: ../models/fabriksgatan.osgb
+Route::AddWaypoint Added waypoint 0: 0, 1, 63.00
+Route::AddWaypoint Added intermediate waypoint 1 roadId 9 laneId -1
+Route::AddWaypoint Added waypoint 2: 2, 1, 0.00
+0.000: Init Ego RoutingAction standbyState -> startTransition -> runningState
+0.000: Ego New position:
+0.000: Pos(28.96, -9.82, 0.00) Rot(1.78, 0.00, 0.00) roadId 0 laneId 1 offset 0.00 t 1.75
+0.000: Init Ego TeleportAction standbyState -> startTransition -> runningState
+0.000: Init Ego LongitudinalAction standbyState -> endTransition -> completeState
+0.000: Ped1 New position:
+0.000: Pos(35.69, -23.63, 0.00) Rot(1.80, 0.00, 0.00) roadId 0 laneId 3 offset 0.50 t 5.30
+0.000: Init Ped1 TeleportAction standbyState -> startTransition -> runningState
+0.000: Init Ego RoutingAction runningState -> endTransition -> completeState
+0.000: Init Ego TeleportAction runningState -> endTransition -> completeState
+0.000: Init Ped1 TeleportAction runningState -> endTransition -> completeState
+0.010: Trigger /------------------------------------------------
+0.010: ActStartCondition == true, 0.0100 > 0.00 edge: none
+0.010: Trigger  ------------------------------------------------/
+0.010: LTAPActNPC standbyState -> startTransition -> runningState
+0.020: Trigger /------------------------------------------------
+0.020: ped_walk_event == true, traveled_dist: 62.91 >= 5.00, edge: rising
+0.020: Triggering entity 0: Ego
+0.020: Trigger  ------------------------------------------------/
+0.030: walk_speed standbyState -> startTransition -> runningState
+0.030: walk_route standbyState -> startTransition -> runningState
+0.030: ped_event standbyState -> startTransition -> runningState
+0.797: walk_speed runningState -> endTransition -> completeState
+3.413: Trigger /------------------------------------------------
+3.413: brake_Condition == true, TTC: 1.70 < 1.70, edge rising
+3.413: Triggering entity 0: Ego
+3.413: Trigger  ------------------------------------------------/
+3.429: brake_Action standbyState -> startTransition -> runningState
+3.429: brake_Event standbyState -> startTransition -> runningState
+5.414: brake_Event complete after 1 execution
+5.430: brake_Action runningState -> endTransition -> completeState
+5.430: brake_Event runningState -> endTransition -> completeState
+10.013: Trigger /------------------------------------------------
+10.013: stop_simulation == true, 10.0130 > 10.00 edge: rising
+10.013: Trigger  ------------------------------------------------/
+Closing

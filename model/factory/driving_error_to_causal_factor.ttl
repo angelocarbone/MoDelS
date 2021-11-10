@@ -1,0 +1,224 @@
+@prefix mds: <http://angelocarbone.com/rules/MoDelS#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mds:de_ac_01 a mds:AvoidingConflict ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Panic ;
+    rdfs:comment "Avoiding animal."@en .
+
+mds:de_ac_02 a mds:AvoidingConflict ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Panic ;
+    rdfs:comment "Avoiding pedestrian."@en .
+
+mds:de_ac_03 a mds:AvoidingConflict ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Panic ;
+    rdfs:comment "Avoiding other cf_vehicle."@en .
+
+mds:de_ac_04 a mds:AvoidingConflict ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Panic ;
+    rdfs:comment "Avoiding other object or parked cf_vehicle."@en .
+
+mds:de_im_01 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:InHurry,
+        mds:PressureOrStrain,
+        mds:SelfConfidence ;
+    rdfs:comment "Following too closely."@en .
+
+mds:de_im_02 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:SelfConfidence ;
+    rdfs:comment "Wrong side of road, not overtaking."@en .
+
+mds:de_im_03 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:InHurry,
+        mds:ReducedVision,
+        mds:SelfConfidence,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Cutting in, too close behind of other cf_vehicle."@en .
+
+mds:de_im_04 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:InHurry,
+        mds:ReducedVision,
+        mds:SelfConfidence,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Cutting in, too in front of other cf_vehicle."@en .
+
+mds:de_im_05 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:DrivingExperience,
+        mds:Panic,
+        mds:ReducedVision,
+        mds:Uncertainty ;
+    rdfs:comment "Driving in other cf_vehicle's blind zone."@en .
+
+mds:de_im_06 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:Panic,
+        mds:PressureOrStrain,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty ;
+    rdfs:comment "Improper turn, cut corner on left turn."@en .
+
+mds:de_im_07 a mds:ImproperManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:Panic,
+        mds:PressureOrStrain,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty ;
+    rdfs:comment "Improper turn, cut corner on right turn."@en .
+
+mds:de_isd_01 a mds:ImproperStoppingOrDecelerating ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Panic,
+        mds:ReducedVision,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Sudden or improper braking."@en .
+
+mds:de_isd_02 a mds:ImproperStoppingOrDecelerating ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Panic,
+        mds:ReducedVision,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Sudden or improper stopping."@en .
+
+mds:de_sr_01 a mds:SpeedRelatedError ;
+    mds:isCausedBy mds:DrivingExperience,
+        mds:Uncertainty ;
+    rdfs:comment "Exceeded safe speed but not speed limit."@en .
+
+mds:de_sr_02 a mds:SpeedRelatedError ;
+    mds:isCausedBy mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Frustration,
+        mds:Panic,
+        mds:ReducedVision,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Driving slowly in relation to other traffic."@en .
+
+mds:pe_plc_01 a mds:PoorLateralControl ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:Fatigued,
+        mds:RoadAreaUnfamiliarity,
+        mds:Uncertainty ;
+    rdfs:comment "Improper turn, wide left turn."@en .
+
+mds:pe_plong_01 a mds:PoorLateralControl ;
+    mds:isCausedBy mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Uncertainty,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Driver did not accelerate enough."@en .
+
+mds:re_d_01 a mds:DistractionError ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:SelfConfidence,
+        mds:VehicleUnfamiliarity ;
+    rdfs:comment "Driver is distracted by internal factor."@en .
+
+mds:re_d_02 a mds:DistractionError ;
+    mds:isCausedBy mds:Distraction,
+        mds:DrivingExperience,
+        mds:Fatigued,
+        mds:Frustration,
+        mds:PressureOrStrain,
+        mds:RoadAreaUnfamiliarity,
+        mds:SelfConfidence ;
+    rdfs:comment "Driver is distracted by external factor."@en .
+
+mds:re_rf_01 a mds:RecognitionFailure ;
+    mds:isCausedBy mds:ReducedVision ;
+    rdfs:comment "Did not see other cf_vehicle during merging."@en .
+
+mds:re_rf_02 a mds:RecognitionFailure ;
+    mds:isCausedBy mds:ReducedVision ;
+    rdfs:comment "Did not see other cf_vehicle during lane changing."@en .
+
+mds:re_rf_03 a mds:RecognitionFailure ;
+    mds:isCausedBy mds:ReducedVision ;
+    rdfs:comment "Did not see other pedestrian during merging."@en .
+
+mds:re_rf_04 a mds:RecognitionFailure ;
+    mds:isCausedBy mds:ReducedVision ;
+    rdfs:comment "Did not see other pedestrian during lane changing."@en .
+
+mds:re_rf_05 a mds:RecognitionFailure ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:Fatigued,
+        mds:ReducedVision,
+        mds:RoadAreaUnfamiliarity ;
+    rdfs:comment "Did not realize concrete barrier."@en .
+
+mds:v_im_01 a mds:IllegalManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:InHurry,
+        mds:RoadAreaUnfamiliarity,
+        mds:SelfConfidence,
+        mds:Uncertainty ;
+    rdfs:comment "Illegal u-turn."@en .
+
+mds:v_im_02 a mds:IllegalManeuver ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:Distraction,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:InHurry,
+        mds:RoadAreaUnfamiliarity,
+        mds:SelfConfidence ;
+    rdfs:comment "Illegal passing."@en .
+
+mds:v_sv_01 a mds:SpeedViolation ;
+    mds:isCausedBy mds:AlcoholImpairment,
+        mds:DrivingExperience,
+        mds:DrugImpairment,
+        mds:EmotionalUpset,
+        mds:InHurry,
+        mds:PressureOrStrain,
+        mds:SelfConfidence ;
+    rdfs:comment "Exceed speed limit."@en .
+
